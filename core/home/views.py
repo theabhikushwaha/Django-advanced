@@ -4,5 +4,5 @@ from django.http import HttpResponse , HttpResponseRedirect , HttpResponseNotAll
 # def home(request):
 #     return render(request, 'home/index.html')
 
-def main(request):
+def home(request):
     return render(request, 'home/index.html')
