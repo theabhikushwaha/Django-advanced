@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home About Contact</title>
+<style>
+ body { font-family: Arial, sans-serif; margin: 0; }
+ nav { background: #333; padding: 10px; }
+ nav a { color: white; text-decoration: none; margin: 0 15px; }
+ nav a:hover { text-decoration: underline; }
+ section { padding: 40px; }
+ #home { background: #f4f4f4; }
+ #about { background: #e2e2e2; }
+ #contact { background: #d0d0d0; }
+ form input, form textarea {
+   width: 100%; padding: 10px; margin-bottom: 10px;
+   border: 1px solid #ccc; border-radius: 4px;
+ }
+ form button {
+   background: #333; color: white; padding: 10px 20px;
+   border: none; cursor: pointer;
+ }
+</style>
+</head>
+<body>
+<nav>
+ <a href="#home">Home</a>
+ <a href="#about">About</a>
+ <a href="#contact">Contact</a>
+</nav>
+<section id="home">
+ <h1>Welcome to Our Website</h1>
+ <p>This is the home section with introductory content.</p>
+</section>
+<section id="about">
+ <h1>About Us</h1>
+ <p>We are a company dedicated to providing quality services.</p>
+</section>
+<section id="contact">
+ <h1>Contact Us</h1>
+ <form action="#" method="post">
+   <input type="text" name="name" placeholder="Your Name" required>
+   <input type="email" name="email" placeholder="Your Email" required>
+   <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+   <button type="submit">Send Message</button>
+ </form>
+</section>
+</body>
+</html>
