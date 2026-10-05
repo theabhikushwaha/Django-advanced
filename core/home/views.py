@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse , HttpResponseRedirect , HttpResponseNotAllowed
 from django.urls import reverse
-import form
-from . import models
     
 
 # def home(request):
