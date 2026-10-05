@@ -1,12 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
-# Create your views here.
-from  . import models
+from . import models
+from .forms import StudentForm
 
 
 def student_list(request):
-    if request.method == 'GET':
-        students = models.Student.objects.all()
-        return render(request, 'model/student.html', {'students': students})
-    return render(request, 'model/student.html', {'students': []})
+    if request.method == "POST":
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("student_list")
+    else:
+        form = StudentForm()
 
+    students = models.Student.objects.all()
+    return render(
+        request,
+        "model/student.html",
+        {"form": form, "students": students},
+    )
