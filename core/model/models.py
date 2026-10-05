@@ -18,4 +18,3 @@ class Student(Person):
 
     def __str__(self):
         return (f"Name: {self.name}, Age: {self.age}, Email: {self.email}, Student ID: {self.student_id}, Major: {self.major}")
-
