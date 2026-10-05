@@ -33,6 +33,10 @@
             font-weight: bold;
         }
 
+        .errorlist {
+            color: #b00020;
+        }
+
         input {
             width: 100%;
             padding: 10px;
@@ -64,23 +68,28 @@
     <div class="form-container">
         <h1>Add Student</h1>
 
-        <form method="POST">
+        <form method="post">
             {% csrf_token %}
 
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter name" required>
+            {{ form.name.label_tag }}
+            {{ form.name }}
+            {{ form.name.errors }}
 
-            <label for="age">Age</label>
-            <input type="number" id="age" name="age" placeholder="Enter age" required>
+            {{ form.age.label_tag }}
+            {{ form.age }}
+            {{ form.age.errors }}
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter email" required>
+            {{ form.email.label_tag }}
+            {{ form.email }}
+            {{ form.email.errors }}
 
-            <label for="student_id">Student ID</label>
-            <input type="text" id="student_id" name="student_id" placeholder="Enter student ID" required>
+            {{ form.student_id.label_tag }}
+            {{ form.student_id }}
+            {{ form.student_id.errors }}
 
-            <label for="major">Major</label>
-            <input type="text" id="major" name="major" placeholder="Enter major" required>
+            {{ form.major.label_tag }}
+            {{ form.major }}
+            {{ form.major.errors }}
 
             <button type="submit">Add Student</button>
         </form>
