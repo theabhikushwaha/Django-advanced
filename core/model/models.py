@@ -17,6 +17,4 @@ class Student(models.Model):
 
 class Car(models.Model):
     name = models.CharField(max_length=100)
-    model = models.CharField(max_length=100)
-    brand = models.CharField(max_length=100)
     speed = models.IntegerField()
