@@ -5,4 +5,5 @@ from pyclbr import Class
 
 class Recipe(models.Model):
     recipe_name = models.CharField(max_length=200)
-    
+    ingredients = models.TextField()
+    description = models.TextField()
