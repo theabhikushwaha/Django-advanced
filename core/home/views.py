@@ -18,6 +18,9 @@ def contact(request):
 def about(request):
     return render(request, 'home/about.html')
 
+def view_recipe(request):
+    return render(request, 'home/recipe.html')
+
 def error_404_view(request, exception):
     return render(request, 'home/404.html', status=404)
 
