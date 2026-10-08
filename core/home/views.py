@@ -1,10 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse , HttpResponseRedirect , HttpResponseNotAllowed
 from django.urls import reverse
-    
+from .forms import RecipeForm
 
-# def home(request):
-#     return render(request, 'home/index.html')
 
 def abhi(request):
     return render(request, 'home/abhi.html')
@@ -20,6 +18,8 @@ def about(request):
 
 def view_recipe(request):
     return render(request, 'home/recipe.html')
+
+
 
 def error_404_view(request, exception):
     return render(request, 'home/404.html', status=404)
