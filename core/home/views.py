@@ -18,10 +18,10 @@ def about(request):
 
 def view_recipe(request):
     if request.method == 'POST':
-        form = RecipeForm(request.POST)
+        form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return HttpResponse("Recipe submitted successfully!")
     else:
         form = RecipeForm()
     return render(request, 'home/recipe.html', {'form': form})
