@@ -17,7 +17,14 @@ def about(request):
     return render(request, 'home/about.html')
 
 def view_recipe(request):
-    return render(request, 'home/recipe.html')
+    if request.method == 'POST':
+        form = RecipeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = RecipeForm()
+    return render(request, 'home/view_recipe.html', {'form': form})
 
 
 
