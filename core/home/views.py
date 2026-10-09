@@ -24,7 +24,7 @@ def view_recipe(request):
             return redirect('home')
     else:
         form = RecipeForm()
-    return render(request, 'home/view_recipe.html', {'form': form})
+    return render(request, 'home/recipe.html', {'form': form})
 
 
 
