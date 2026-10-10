@@ -25,7 +25,7 @@ urlpatterns = [
     path('', include('home.urls')),
     path('student/', include('model.urls')),
     path('accounts/', include('accounts.urls')),
-    path('recipes/', include('recipes.urls'))
+    path('recipe/', include('recipe.urls'))
 ]
 
 urlpatterns += static(settings.STATIC_URL , document_root=settings.STATIC_ROOT) 
