@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'accounts',
     'home',
     'model',
+    'recipes',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Recipe</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 40px;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            height: 120px;
+            resize: vertical;
+        }
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+
+        <h1>Add Recipe</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+            <label for="user_name">Your Name</label>
+            <input
+                type="text"
+                id="user_name"
+                name="user_name"
+                placeholder="Enter your name"
+                required
+            >
+            <label for="recipe_name">Recipe Name</label>
+            <input
+                type="text"
+                id="recipe_name"
+                name="recipe_name"
+                placeholder="Enter recipe name"
+                required
+            >
+                    
+            <label for="ingredients">Ingredients</label>
+            <textarea
+                id="ingredients"
+                name="ingredients"
+                placeholder="Enter ingredients&#10;Example:&#10;2 potatoes&#10;1 onion&#10;1 teaspoon salt&#10;2 tablespoons oil"
+                required
+            ></textarea>
+
+            <label for="description">Description</label>
+            <textarea
+                id="description"
+                name="description"
+                placeholder="Enter recipe description"
+                required
+            ></textarea>
+
+            <label for="image">Recipe Image</label>
+                <input
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+                >
+            
+            <button type="submit">Add Recipe</button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
