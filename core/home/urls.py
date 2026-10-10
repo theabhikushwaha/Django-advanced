@@ -9,7 +9,7 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('about/', views.about, name='about'),
     path('abhi/', views.abhi, name='abhi'),
-    path('recipe/', views.view_recipe, name='view_recipe'),
+    path('homerecipe/', views.view_recipe, name='view_recipe'),
 ]
 
 if settings.DEBUG:
