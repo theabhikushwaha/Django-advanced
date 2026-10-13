@@ -1,7 +1,11 @@
+from core.core import settings
 from . import views
-
 from django.urls import path
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('donet/', views.Recipe, name='recipe_from'),
+    path('recipe/', views.Recipe, name='recipe_form'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

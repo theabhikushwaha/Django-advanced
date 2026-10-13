@@ -14,3 +14,8 @@ def Recipe(request):
             form.save()
             return render(request, 'recipe/recipe.html', )
     return render(request, 'recipe/recipe.html', {'form': RecipeForm()})
+
+def Recipeview(request):
+    recipes = models.Recipe.objects.all()
+    return render(request, 'recipe/recipeview.html', {'recipes': recipes})
+
