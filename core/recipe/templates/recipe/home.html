@@ -1,0 +1,158 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Recipe Corner | Cook, Share, Discover</title>
+
+    <link rel="stylesheet" href="{% static 'recipehome.css' %}">
+</head>
+
+<body>
+
+    <div class="homepage">
+
+        <!-- Navigation -->
+        <header class="navbar">
+            <a href="{% url 'home' %}" class="brand">
+                <div class="brand-icon">♨</div>
+                <div class="brand-text">
+                    <h2>Recipe Corner</h2>
+                    <span>COOK · SHARE · DISCOVER</span>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="{% url 'recipe_list' %}">Explore</a>
+                <a href="{% url 'recipe_form' %}" class="nav-cta">
+                    Share Recipe
+                </a>
+            </nav>
+        </header>
+
+
+        <!-- Hero Section -->
+        <main>
+
+            <section class="hero">
+                <p class="eyebrow">YOUR COMMUNITY COOKBOOK</p>
+
+                <h1>
+                    Good food brings<br>
+                    people <span>together.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Discover delicious recipes, share your own creations,
+                    and find inspiration for your next meal.
+                    Every recipe has a story.
+                </p>
+            </section>
+
+
+            <!-- Main Actions -->
+            <section class="main-actions">
+
+                <a href="{% url 'recipe_form' %}"
+                   class="action-card share-card">
+
+                    <div class="action-icon">✎</div>
+
+                    <div class="action-content">
+                        <h2>Share a Recipe</h2>
+                        <p>
+                            Add your ingredients, description,
+                            and food photos.
+                        </p>
+                    </div>
+
+                    <span class="action-arrow">↗</span>
+                </a>
+
+
+                <a href="{% url 'recipe_list' %}"
+                   class="action-card explore-card">
+
+                    <div class="action-icon">♨</div>
+
+                    <div class="action-content">
+                        <h2>Explore Recipes</h2>
+                        <p>
+                            Browse dishes and discover what
+                            other cooks are making.
+                        </p>
+                    </div>
+
+                    <span class="action-arrow">↗</span>
+                </a>
+
+            </section>
+
+
+            <!-- Future Features -->
+            <section class="upcoming-section">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">MORE TO COME</p>
+                        <h2>There's more on the menu.</h2>
+                    </div>
+
+                    <span class="coming-label">Coming Soon</span>
+                </div>
+
+
+                <div class="upcoming-grid">
+
+                    <article class="feature-card">
+                        <div class="feature-icon">♡</div>
+                        <h3>My Cookbook</h3>
+                        <p>
+                            Save your favorite recipes
+                            in one place.
+                        </p>
+                        <span class="feature-status">Coming soon</span>
+                    </article>
+
+
+                    <article class="feature-card">
+                        <div class="feature-icon">⌕</div>
+                        <h3>Find a Recipe</h3>
+                        <p>
+                            Search dishes by name,
+                            ingredients, or category.
+                        </p>
+                        <span class="feature-status">Coming soon</span>
+                    </article>
+
+
+                    <article class="feature-card">
+                        <div class="feature-icon">☷</div>
+                        <h3>My Recipes</h3>
+                        <p>
+                            Manage and organize
+                            your own creations.
+                        </p>
+                        <span class="feature-status">Coming soon</span>
+                    </article>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made for food lovers, one recipe at a time.</p>
+            <span>Recipe Corner © 2026</span>
+        </footer>
+
+    </div>
+
+</body>
+</html>
