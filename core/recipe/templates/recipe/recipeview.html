@@ -1,0 +1,103 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Recipes</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #333;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .recipe-image {
+            width: 100px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>All Recipes</h1>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>Recipe Name</th>
+                    <th>Ingredients</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for recipe in recipes %}
+                <tr>
+                    <td>{{ recipe.user_name }}</td>
+                    <td>{{ recipe.recipe_name }}</td>
+                    <td>{{ recipe.ingredients|linebreaksbr }}</td>
+                    <td>{{ recipe.description|truncatewords:25 }}</td>
+                    <td>
+                        {% if recipe.image %}
+                            <img
+                                src="{{ recipe.image.url }}"
+                                alt="{{ recipe.recipe_name }}"
+                                class="recipe-image"
+                            >
+                        {% else %}
+                            No image
+                        {% endif %}
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5">No recipes found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
+```
