@@ -50,10 +50,55 @@
             object-fit: cover;
             border-radius: 5px;
         }
+
+        .recipe-action {
+            display: flex;
+            justify-content: flex-end;
+            margin: 20px 0;
+        }
+
+        .add-recipe-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: #2563eb;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .add-recipe-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .plus-icon {
+            font-size: 22px;
+            line-height: 1;
+        }
+
+        .add-recipe-btn:focus-visible {
+            outline: 3px solid #93c5fd;
+            outline-offset: 3px;
+        }
+
+
+
     </style>
 </head>
 
 <body>
+
+    <div class="recipe-action">
+        <a href="{% url 'recipe_form' %}" class="add-recipe-btn">
+            <span class="plus-icon">+</span>
+            Add a New Recipe
+        </a>
+    </div>
 
     <h1>All Recipes</h1>
 
