@@ -1,97 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Recipes</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            padding: 30px;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        .table-container {
-            overflow-x: auto;
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-            vertical-align: top;
-        }
-
-        th {
-            background: #333;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background: #f9f9f9;
-        }
-
-        .recipe-image {
-            width: 100px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
-
-        .recipe-action {
-            display: flex;
-            justify-content: flex-end;
-            margin: 20px 0;
-        }
-
-        .add-recipe-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 20px;
-            background: #2563eb;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-            border-radius: 8px;
-            transition: background 0.2s ease, transform 0.2s ease;
-        }
-
-        .add-recipe-btn:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
-        }
-
-        .plus-icon {
-            font-size: 22px;
-            line-height: 1;
-        }
-
-        .add-recipe-btn:focus-visible {
-            outline: 3px solid #93c5fd;
-            outline-offset: 3px;
-        }
-
-
-
-    </style>
+    <link rel="stylesheet" href="{% static 'recipehome.css' %}">
 </head>
 
-<body>
+<body class="recipe-list-page">
 
     <div class="recipe-action">
         <a href="{% url 'recipe_form' %}" class="add-recipe-btn">

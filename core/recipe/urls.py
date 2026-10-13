@@ -4,8 +4,8 @@ from django.urls import path
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('recipe/', views.Recipe, name='recipe_form'),
-    path('recipeview/', views.Recipeview, name='recipe_view'),
+    path('add/', views.Recipe, name='recipe_form'),
+    path('view/', views.Recipeview, name='recipe_view'),
 ]
 
 if settings.DEBUG:
