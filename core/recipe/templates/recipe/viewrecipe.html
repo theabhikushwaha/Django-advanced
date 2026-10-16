@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Explore Recipes | Recipe Corner</title>
+
+    <link rel="stylesheet" href="{% static 'viewrecipe.css' %}">
+</head>
+
+<body class="recipe-list-page">
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <a href="{% url 'home' %}" class="brand">
+            <span class="brand-icon">✳</span>
+            Recipe Corner
+        </a>
+
+        <a href="{% url 'recipe_form' %}" class="add-recipe-btn">
+            <span class="plus-icon">+</span>
+            Share a Recipe
+        </a>
+    </header>
+
+    <!-- Page Introduction -->
+    <main class="page-container">
+
+        <section class="page-intro">
+            <span class="eyebrow">THE COMMUNITY COOKBOOK</span>
+
+            <h1>Explore Recipes<span>.</span></h1>
+
+            <p>
+                Discover delicious ideas, explore new dishes,
+                and find inspiration from our cooking community.
+            </p>
+
+            <div class="recipe-count">
+                <span class="count-number">{{ recipes|length }}</span>
+                <span>
+                    {% if recipes|length == 1 %}
+                        recipe shared
+                    {% else %}
+                        recipes shared
+                    {% endif %}
+                </span>
+            </div>
+        </section>
+
+        <!-- Recipe Cards -->
+        <section class="recipe-grid">
+
+            {% for recipe in recipes %}
+                <article class="recipe-card">
+
+                    <div class="recipe-image-container">
+                        {% if recipe.image %}
+                            <img
+                                src="{{ recipe.image.url }}"
+                                alt="{{ recipe.recipe_name }}"
+                                class="recipe-image"
+                                loading="lazy"
+                            >
+                        {% else %}
+                            <div class="image-placeholder">
+                                <span>✳</span>
+                                <p>Made with love</p>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="recipe-content">
+
+                        <div class="recipe-author">
+                            <span class="author-icon">♧</span>
+                            <span>
+                                By {{ recipe.user_name|default:"Anonymous" }}
+                            </span>
+                        </div>
+
+                        <h2>{{ recipe.recipe_name }}</h2>
+
+                        <div class="recipe-section">
+                            <h3>Ingredients</h3>
+                            <p>{{ recipe.ingredients|truncatewords:25|linebreaksbr }}</p>
+                        </div>
+
+                        <div class="recipe-section description-section">
+                            <h3>About this recipe</h3>
+                            <p>{{ recipe.description|truncatewords:35 }}</p>
+                        </div>
+
+                    </div>
+                </article>
+
+            {% empty %}
+                <div class="empty-state">
+                    <div class="empty-icon">♨</div>
+
+                    <h2>Your cookbook is waiting.</h2>
+
+                    <p>
+                        No recipes have been shared yet.
+                        Be the first to add something delicious!
+                    </p>
+
+                    <a href="{% url 'recipe_form' %}" class="empty-button">
+                        <span>+</span> Share Your First Recipe
+                    </a>
+                </div>
+            {% endfor %}
+
+        </section>
+
+        <!-- Bottom Navigation -->
+        <footer class="page-footer">
+            <p>Good food brings people together.</p>
+            <a href="{% url 'home' %}">Back to Home ↑</a>
+        </footer>
+
+    </main>
+
+</body>
+</html>

@@ -16,9 +16,9 @@ def Recipe(request):
         form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return render(request, 'recipe/recipe.html', )
-    return render(request, 'recipe/recipe.html', {'form': RecipeForm()})
+            return render(request, 'recipe/addrecipe.html', )
+    return render(request, 'recipe/addrecipe.html', {'form': RecipeForm()})
 
 def Recipeview(request):
     recipes = models.Recipe.objects.all()
-    return render(request, 'recipe/recipeview.html', {'recipes': recipes})
+    return render(request, 'recipe/viewrecipe.html', {'recipes': recipes})

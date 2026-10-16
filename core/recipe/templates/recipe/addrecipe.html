@@ -1,0 +1,225 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Share a Recipe | Recipe Corner</title>
+
+    <link rel="stylesheet" href="{% static 'addrecipe.css' %}">
+</head>
+
+<body class="recipe-form-page">
+
+    <div class="page-container">
+
+        <!-- Top Navigation -->
+        <header class="form-navbar">
+
+            <a href="{% url 'home' %}" class="brand">
+                <div class="brand-icon">♨</div>
+
+                <div class="brand-text">
+                    <h2>Recipe Corner</h2>
+                    <span>COOK · SHARE · DISCOVER</span>
+                </div>
+            </a>
+
+            <a href="{% url 'recipe_view' %}" class="browse-link">
+                <span>Explore Recipes</span>
+                <span class="arrow-icon">↗</span>
+            </a>
+
+        </header>
+
+
+        <!-- Main Content -->
+        <main class="form-main">
+
+            <section class="form-intro">
+
+                <p class="eyebrow">YOUR COMMUNITY COOKBOOK</p>
+
+                <h1>Share something <span>delicious.</span></h1>
+
+                <p class="intro-description">
+                    Every recipe has a story. Share your favorite dish,
+                    list the ingredients, and let others discover
+                    something new to cook.
+                </p>
+
+            </section>
+
+
+            <!-- Recipe Form -->
+            <section class="form-container">
+
+                <div class="form-heading">
+                    <div>
+                        <h2>Create a Recipe</h2>
+                        <p>Fill in the details of your dish below.</p>
+                    </div>
+
+                    <span class="form-badge">New Recipe</span>
+                </div>
+
+
+                <form method="POST" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+
+                    <!-- User Name -->
+                    <div class="form-group">
+                        <label for="user_name">
+                            Your Name <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="user_name"
+                            name="user_name"
+                            placeholder="e.g. Abhi"
+                            maxlength="100"
+                            autocomplete="name"
+                            required
+                        >
+
+                        <small>Your name will appear with your recipe.</small>
+                    </div>
+
+
+                    <!-- Recipe Name -->
+                    <div class="form-group">
+                        <label for="recipe_name">
+                            Recipe Name <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="recipe_name"
+                            name="recipe_name"
+                            placeholder="e.g. Homemade Paneer Curry"
+                            maxlength="200"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Ingredients -->
+                    <div class="form-group">
+                        <label for="ingredients">
+                            Ingredients <span class="required">*</span>
+                        </label>
+
+                        <textarea
+                            id="ingredients"
+                            name="ingredients"
+                            rows="5"
+                            placeholder="List your ingredients, one per line.&#10;&#10;Example:&#10;2 potatoes&#10;1 onion&#10;1 teaspoon salt&#10;2 tablespoons oil"
+                            required
+                        ></textarea>
+
+                        <small>Include quantities to help others follow your recipe.</small>
+                    </div>
+
+
+                    <!-- Description -->
+                    <div class="form-group">
+                        <label for="description">
+                            Recipe Instructions <span class="required">*</span>
+                        </label>
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            rows="6"
+                            placeholder="Describe how to prepare your dish, step by step..."
+                            required
+                        ></textarea>
+                    </div>
+
+
+                    <!-- Image Upload -->
+                    <div class="form-group">
+                        <label for="image">Recipe Photo</label>
+
+                        <label for="image" class="upload-area">
+
+                            <span class="upload-icon">↑</span>
+
+                            <span class="upload-title">
+                                Choose a photo
+                            </span>
+
+                            <span class="upload-description">
+                                Add an image of your finished dish.
+                            </span>
+
+                            <span class="upload-format">
+                                Image files only
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="file"
+                            id="image"
+                            name="image"
+                            accept="image/*"
+                            class="file-input"
+                        >
+
+                        <p id="file-name" class="file-name">
+                            No image selected
+                        </p>
+                    </div>
+
+
+                    <!-- Submit -->
+                    <div class="form-footer">
+
+                        <p>
+                            <span class="required">*</span>
+                            Required fields
+                        </p>
+
+                        <button type="submit" class="submit-btn">
+                            <span>Publish Recipe</span>
+                            <span class="submit-arrow">→</span>
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+
+            <p class="bottom-note">
+                Made for food lovers, one recipe at a time.
+            </p>
+
+        </main>
+
+    </div>
+
+
+    <!-- Display Selected Image Filename -->
+    <script>
+        const imageInput = document.getElementById("image");
+        const fileName = document.getElementById("file-name");
+
+        imageInput.addEventListener("change", function () {
+            if (this.files.length > 0) {
+                fileName.textContent = this.files[0].name;
+            } else {
+                fileName.textContent = "No image selected";
+            }
+        });
+    </script>
+
+</body>
+</html>
+
