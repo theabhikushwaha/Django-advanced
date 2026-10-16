@@ -1,0 +1,44 @@
+<!-- templates/user_list.html -->
+<h1>Students</h1>
+
+<table border="1" cellpadding="8">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Age</th>
+      <th>Student ID</th>
+      <th>Major</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for student in students %}
+      <tr>
+        <td>{{ student.name }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{ student.age }}</td>
+        <td>{{ student.student_id }}</td>
+        <td>{{ student.major }}</td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="5">No students yet.</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<!-- templates/user_list.html -->
+<!-- <h1>Students</h1>
+
+{% for student in students %}
+  <div>
+    <h3>{{ student.name }}</h3>
+    <h3>{{ student.age }}</h3>
+    <p>{{ student.email }}</p>
+    <p>{{ student.student_id }}</p>
+    <p>{{ student.major }}</p>
+  </div>
+{% empty %}
+  <p>No students yet.</p>
+{% endfor %} -->
