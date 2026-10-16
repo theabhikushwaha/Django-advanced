@@ -9,6 +9,7 @@
       <th>Age</th>
       <th>Student ID</th>
       <th>Major</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +20,13 @@
         <td>{{ student.age }}</td>
         <td>{{ student.student_id }}</td>
         <td>{{ student.major }}</td>
+        <td>
+          <form method="post" action="{% url 'delete_student' student.pk %}"
+              onsubmit="return confirm('Are you sure you want to delete this student?');">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+          </form>
+        </td>
       </tr>
     {% empty %}
       <tr>
@@ -28,17 +36,4 @@
   </tbody>
 </table>
 
-<!-- templates/user_list.html -->
-<!-- <h1>Students</h1>
 
-{% for student in students %}
-  <div>
-    <h3>{{ student.name }}</h3>
-    <h3>{{ student.age }}</h3>
-    <p>{{ student.email }}</p>
-    <p>{{ student.student_id }}</p>
-    <p>{{ student.major }}</p>
-  </div>
-{% empty %}
-  <p>No students yet.</p>
-{% endfor %} -->
