@@ -27,8 +27,7 @@ def student_list(request):
         {"students": students},
     )
 
-def delete_student(request, pk):
-    if request.method == "POST":
-        student = get_object_or_404(Student, pk=pk)
-        student.delete()
-    return redirect("student_list")
+def student_delete(request, pk):
+    student = get_object_or_404(Student, pk=pk)
+    student.delete()
+    return redirect(request, "student_list")
