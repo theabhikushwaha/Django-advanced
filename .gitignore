@@ -215,8 +215,11 @@ marimo/_lsp/
 
 # presonal 
 /notes
+/notebook
+
 
 __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+

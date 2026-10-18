@@ -27,7 +27,8 @@ def student_list(request):
         {"students": students},
     )
 
-def student_delete(request, pk):
-    student = get_object_or_404(Student, pk=pk)
-    student.delete()
-    return redirect(request, "student_list")
+def student_delete(requset, id):
+    queryset = get_object_or_404(Student, id=id)
+    queryset.delete()
+    return redirect("student_list")
+
