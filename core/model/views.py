@@ -32,7 +32,19 @@ def student_delete(requset, id):
     queryset.delete()
     return redirect("student_list")
 
+# def student_update(request, id):
+#     querset = get_object_or_404(Student, id=id)
+#     context = {student_list:querset}
+#     return render(request, 'model/studentupdate.html' , context)
+
 def student_update(request, id):
-    querset = get_object_or_404(Student, id=id)
-    context = {student_list:querset}
-    return render(request, 'studentupdate.html' , context)
+    student = get_object_or_404(Student, id=id)
+
+    if request.method == "POST":
+        form = StudentForm(request.POST, request.FILES, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect("student_list")
+    else:
+        form = StudentForm(instance=student)
+    return render(request, "model/studentupdate.html", {"form": form, "student": student})

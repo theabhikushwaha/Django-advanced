@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Student</title>
+    <title>Edit Student</title>
 
     <style>
         body {
@@ -65,35 +65,14 @@
 
 <body>
 
-    <div class="form-container">
-        <h1>Add Student</h1>
-
-        <form method="post">
-            {% csrf_token %}
-
-            {{ form.name.label_tag }}
-            {{ form.name }}
-            {{ form.name.errors }}
-
-            {{ form.age.label_tag }}
-            {{ form.age }}
-            {{ form.age.errors }}
-
-            {{ form.email.label_tag }}
-            {{ form.email }}
-            {{ form.email.errors }}
-
-            {{ form.student_id.label_tag }}
-            {{ form.student_id }}
-            {{ form.student_id.errors }}
-
-            {{ form.major.label_tag }}
-            {{ form.major }}
-            {{ form.major.errors }}
-
-            <button type="submit">Add Student</button>
-        </form>
-    </div>
+    <h1>Edit Student</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save changes</button>
+        <a href="{% url 'student_list' %}">Cancel</a>
+    </form>
 
 </body>
+
 </html>
