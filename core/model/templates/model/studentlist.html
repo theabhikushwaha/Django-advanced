@@ -23,7 +23,7 @@
         <td>{{ student.major }}</td>
         <td>
           <form method="POST"
-              action="{% url 'delete_student' student.id %}">
+              action="{% url 'student_delete' student.id %}">
             {% csrf_token %}
             <button type="submit"
                 onclick="return confirm('Delete this student?')">

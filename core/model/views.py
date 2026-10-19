@@ -32,3 +32,7 @@ def student_delete(requset, id):
     queryset.delete()
     return redirect("student_list")
 
+def student_update(request, id):
+    querset = get_object_or_404(Student, id=id)
+    context = {student_list:querset}
+    return render(request, 'studentupdate.html' , context)
