@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotAllowed
 from .form import RecipeForm
 from django.urls import reverse
-
 from . import models
 # Create your views here.
 
@@ -21,3 +20,8 @@ def Recipe(request):
 def Recipeview(request):
     recipes = models.Recipe.objects.all()
     return render(request, 'recipe/viewrecipe.html', {'recipes': recipes})
+
+def recipe_delete(request , id):
+    recipe = get_object_or_404(Recipe , id=id)
+    recipe.delete()
+    return redirect('Recipeview')

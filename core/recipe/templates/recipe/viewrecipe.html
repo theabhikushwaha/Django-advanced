@@ -28,6 +28,8 @@
     <!-- Page Introduction -->
     <main class="page-container">
 
+
+
         <section class="page-intro">
             <span class="eyebrow">THE COMMUNITY COOKBOOK</span>
 
@@ -54,8 +56,16 @@
         <section class="recipe-grid">
 
             {% for recipe in recipes %}
+                 <!-- buttons  -->
                 <article class="recipe-card">
-
+                    
+                    <form action="{% url 'recipe_delete' recipe.id %}">
+                       {% csrf_token %}
+                        <button type="submit"
+                            onclick="return confirm('Delete this recipe?')">
+                             Delete
+                       </button>
+                    </form>
                     <div class="recipe-image-container">
                         {% if recipe.image %}
                             <img

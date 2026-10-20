@@ -1,7 +1,16 @@
 <!-- templates/user_list.html -->
+<style>
+
+.button {
+     background-color: black;
+    color: white;
+    padding: 8px;
+}
+</style>
+
 <h1>Students</h1>
 
-<table border="1" cellpadding="8">
+<table ,border="1" cellpadding="8">
   <thead>
     <tr>
       <th>Name</th>
@@ -30,7 +39,7 @@
               Delete
             </button>
           </form>
-          <a href="{% url 'student_update' student.id %}">Update</a>
+          <a class="button" href="{% url 'student_update' student.id %}">Update</a>
         </td>
       </tr>
     {% endfor %}
