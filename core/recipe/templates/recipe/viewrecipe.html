@@ -59,12 +59,11 @@
                  <!-- buttons  -->
                 <article class="recipe-card">
                     
-                    <form action="{% url 'recipe_delete' recipe.id %}">
+                    <form action="{% url 'recipe_delete' recipe.id %}" method="post">
                        {% csrf_token %}
-                        <button type="submit"
-                            onclick="return confirm('Delete this recipe?')">
-                             Delete
-                       </button>
+                        <button type="submit" onclick="return confirm('Delete this recipe?')">
+                           Delete
+                        </button>
                     </form>
                     <div class="recipe-image-container">
                         {% if recipe.image %}

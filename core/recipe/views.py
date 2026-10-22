@@ -3,13 +3,14 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotAllow
 from .form import RecipeForm
 from django.urls import reverse
 from . import models
+from .models import Recipe
 # Create your views here.
 
 
 def recipehome (request):
     return render(request, 'recipe/recipehome.html')
 
-def Recipe(request):
+def Recipes(request):
     if request.method == 'POST':
         form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
@@ -22,6 +23,7 @@ def Recipeview(request):
     return render(request, 'recipe/viewrecipe.html', {'recipes': recipes})
 
 def recipe_delete(request , id):
-    recipe = get_object_or_404(Recipe , id=id)
-    recipe.delete()
-    return redirect('Recipeview')
+    recipe = get_object_or_404(Recipe ,id=id)
+    if request.method =='POST':
+        recipe.delete()
+    return redirect('recipe_view')
