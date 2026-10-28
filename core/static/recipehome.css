@@ -89,6 +89,21 @@ a {
     color: #fff;
 }
 
+/* ---------- Messages ---------- */
+
+.messages {
+    padding-top: 20px;
+}
+
+.message {
+    padding: 12px 16px;
+    border: 1px solid #b5c9b9;
+    border-radius: 8px;
+    background: #eaf0e8;
+    color: #2f5d46;
+    font-size: 14px;
+}
+
 
 /* ---------- Hero ---------- */
 
@@ -425,4 +440,3 @@ a {
         gap: 5px;
     }
 }
-

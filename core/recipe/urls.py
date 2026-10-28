@@ -7,7 +7,7 @@ urlpatterns = [
     path('', views.recipehome, name='recipehome'),
     path('add/', views.recipes_add, name='recipe_form'),
     path('view/', views.recipeview, name='recipe_view'),
-    path('recipe_delete/<int:id>', views.recipe_delete , name='recipe_delete')
+    path('recipe_delete/<int:pk>', views.recipe_delete , name='recipe_delete')
 ]
 
 if settings.DEBUG:

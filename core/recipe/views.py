@@ -13,14 +13,13 @@ from django.contrib import messages
 def recipehome (request):
     return render(request, 'recipe/recipehome.html')
 
-@login_required
 def recipes_add(request):
     if request.method == 'POST':
         form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, "Recipe added.")
-            return render(request, 'recipe/addrecipe.html', )
+            return redirect('recipehome')
     return render(request, 'recipe/addrecipe.html', {'form': RecipeForm()})
 
 def recipeview(request):
@@ -28,7 +27,7 @@ def recipeview(request):
     return render(request, 'recipe/viewrecipe.html', {'recipes': recipes})
 
 @require_POST
-def recipe_delete(request , pk):
+def recipe_delete(request, pk):
     recipe = get_object_or_404(Recipe ,pk=pk)
     recipe.delete()
     return redirect('recipe_view')
