@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from . import models
 from .forms import StudentForm
 from .models import Student
+from django.views.decorators.http import require_POST
 
 def student_add(request):
     if request.method == "POST":
@@ -27,15 +28,12 @@ def student_list(request):
         {"students": students},
     )
 
-def student_delete(requset, id):
-    queryset = get_object_or_404(Student, id=id)
-    queryset.delete()
+@require_POST
+def student_delete(request , pk):
+    student = get_object_or_404(Student, pk=pk)
+    student.delete()
     return redirect("student_list")
 
-# def student_update(request, id):
-#     querset = get_object_or_404(Student, id=id)
-#     context = {student_list:querset}
-#     return render(request, 'model/studentupdate.html' , context)
 
 def student_update(request, id):
     student = get_object_or_404(Student, id=id)
