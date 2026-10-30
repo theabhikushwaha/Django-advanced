@@ -49,3 +49,5 @@ def user_login(request):
 def dashboard(request):
     return render(request, "accounts/dashboard.html")
 
+def accounts(request):
+    return render(request, 'accounts/accounts.html')
