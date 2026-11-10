@@ -23,6 +23,7 @@ def register(request):
     })
 
 
+
 def user_login(request):
     if request.method == "POST":
         username = request.POST.get("username", "")
